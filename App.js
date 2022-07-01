@@ -16,6 +16,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from './src/navigator/ScreensStack/HomeScreen';
 /* importamos DetailsScreen */
 import DetailsScreen from './src/navigator/ScreensStack/DetailsScreen';
+/*importamos los iconos */
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 
 
@@ -32,8 +34,26 @@ export default function App() {
     </NavigationContainer> }*/
     <NavigationContainer>
     <Tab.Navigator>
-      <Tab.Screen name="Inicio" component={HomeScreen} />
-      <Tab.Screen name="Settings" component={DetailsScreen} />
+      <Tab.Screen 
+        name="Inicio" 
+        component={HomeScreen}
+        options={{
+          tabBarLabel: 'Home',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="home" color={color} size={size} />
+          ),
+        }} 
+      />
+      <Tab.Screen 
+        name="Settings" 
+        component={DetailsScreen}
+        options={{
+          tabBarLabel: 'Updates',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="bell" color={color} size={size} />
+          ),
+        }} 
+      />
     </Tab.Navigator>
     </NavigationContainer>
   );
